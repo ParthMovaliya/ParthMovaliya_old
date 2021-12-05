@@ -1,0 +1,113 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration/Sign In</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="signin_final_project_02.css">
+
+</head>
+<body>
+
+  <div class="container">
+  <div class="row">
+    
+    <div class="col-sm shadow  bg-white rounded">
+      <div class="html_form" style="padding-right: 5px;">
+  <form onsubmit="return validation()" name="signin" method="POST" autocomplete="off">
+    <h2>Registration form</h2>
+    
+    <input type="text" name="Name" id="name" placeholder="Name" ><br>
+    <span id="errorname" style="color: red; font-size: 10px;"></span>
+
+    <input type="email" name="Email" id="email" placeholder="Email id" ><br>
+    <span id="erroeemail" style="color: red; font-size: 10px;"></span>
+
+    <input type="number" name="Number" id="number" placeholder="Contact no." ><br>
+    <span id="erroenumber" style="color: red; font-size: 10px;"></span>
+
+    <input type="password" name="New Password" id="password" placeholder="New Passoword" ><br>
+    <span id="errorpassword" style="color: red; font-size: 10px;"></span>
+
+    <input type="text" name="Confirm Password" id="cpassword" placeholder="Conform Passoword" ><br>
+    <span id="errorcpassword" style="color: red; font-size: 10px;"></span>
+
+    <button type="submit">REGISTER</button>
+    <button type="reset">RESET</button>
+    <br>
+
+  </form>
+</div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function validation(){
+    var username =document.getElementById('name').value;
+    var email=document.getElementById('email').value;
+    var number=document.getElementById('number').value;
+    var password=document.getElementById('password').value;
+    var cpassword=document.getElementById('cpassword').value;
+
+    var namecheck = /^[A-Za-z]{3,40}$/;
+    var emailcheck = /^[A-Za-z0-9._]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z.]{2,6}$/;
+    var numbercheck =/^[6789][0-9]{9}$/
+    var Passowordcheck =/^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z0-9]{8,16}$/
+
+    if (namecheck.test(username)) {
+      document.getElementById('errorname').innerHTML =" ";
+    }
+    else{
+      document.getElementById('errorname').innerHTML ="**Invelid Name**";
+      return false;
+    }
+    if (emailcheck.test(email)) {
+      document.getElementById('erroeemail').innerHTML=" ";
+    }
+    else{
+      document.getElementById('erroeemail').innerHTML="**Invelid Email**";
+      return false;
+    }
+    if (numbercheck.test(number)) {
+      document.getElementById('erroenumber').innerHTML=" ";
+    }
+    else{
+      document.getElementById('erroenumber').innerHTML="**Invelid number**";
+      return false;
+    }
+    if (passwordcheck.test(password)) {
+      document.getElementById('errorpassword').innerHTML=" ";
+    }
+    else{
+      document.getElementById('errorpassword').innerHTML="**Invelid Password Atlist 1 Uppercase, 1 Lowercase, 1 numeric, 1 special char.**";
+      return false;
+    }
+    if (cpassword.match(password)) {
+      document.getElementById('errorcpassword').innerHTML=" ";  
+    }
+    else{
+      document.getElementById('errorcpassword').innerHTML="**Password Not Match**";
+      return false;
+    }
+  }
+</script>
+
+<script>
+ const scriptURL = 'https://script.google.com/macros/s/AKfycbz74fn7LpDZitfClXiXEfh9SiBO2Z0TDAUNCVtP2QNPu5aVMxbCM64bxihEMYyStvW4VQ/exec'
+            const form = document.forms['signin']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks For Registration/Sign In....."))
+                .catch(error => console.error('Error!', error.message))
+            })
+            </script>
+
+</body>
+</html>
+
+
