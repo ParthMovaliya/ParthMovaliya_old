@@ -46,6 +46,7 @@ h3{
 }
 
 a{
+    font-family: 'Montserrat', sans-serif;
     color: #11999E;
 }
 
@@ -108,7 +109,8 @@ p{
 }
 
 .bottom-container{
-    padding: 3%;
+    padding-top: 3%;
+    padding-bottom: 1%;
     background-color: #66BFBF;
 }
 
@@ -131,7 +133,7 @@ p{
     -webkit-border-radius: 8;
     -moz-border-radius: 8;
     border-radius: 8px;
-    font-family: Arial;
+    font-family: 'Montserrat', sans-serif;
     color: #ffffff;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
@@ -163,7 +165,8 @@ p{
     font-weight: bold;
 }
 
-
-.bottom-container p{
+.copyright{
+    padding-top: 2%;
     color:#EAF6F6;
+    font-size: 0.75rem;
 }
